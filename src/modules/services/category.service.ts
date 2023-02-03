@@ -6,8 +6,8 @@ export class CategoryService extends HttpService {
     return this.get(`categories/`);
   }
 
-  getCAtegoryById(id: string) {
-    return this.get(`category/${id}`);
+  getCategoryById(id: string) {
+    return this.get(`categories/${id}`);
   }
 }
 

@@ -4,9 +4,9 @@ import { Header } from "../common/components/header/header";
 import FilterButtons from "./filters/filters.component";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { RadioChangeEvent } from "antd";
-import { useProducts } from "../hooks/useProducts";
 import { IProduct } from "../common/types/product.types";
 import ProductItem from "./element/product-element";
+import { useProducts } from "../hooks/product-hooks";
 
 export const ProductsList = () => {
   const [category, setCategory] = React.useState<string>("");

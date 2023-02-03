@@ -1,5 +1,5 @@
 import React from 'react';
-import { useProfile } from '../hooks/useProfile';
+import { useProfile } from '../hooks/profile-hooks.ts';
 import { Box, CircularProgress } from '@mui/material';
 import { ProfilePage } from './profile.component';
 import { Navigate } from 'react-router-dom';

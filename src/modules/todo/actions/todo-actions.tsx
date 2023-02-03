@@ -5,9 +5,9 @@ import { useNavigate } from 'react-router-dom';
 import { ITodo } from '../../common/types/todo.types';
 import { todoService } from '../../services/todo.service';
 import { QUERY_KEYS, ROUTER_KEYS } from '../../common/consts/app-keys.const';
-import { useTodo } from '../../hooks/useTodo';
 import { Box, Stack } from '@mui/system';
 import { TodoActionsStyles } from './todo-actions.styled';
+import { useTodo } from '../../hooks/todo-hooks';
 
 interface ITodoActionProps {
   id?: string;

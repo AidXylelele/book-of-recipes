@@ -6,8 +6,8 @@ import Typography from '@mui/material/Typography';
 import { Box, Button, CardActionArea, CardActions, LinearProgress } from '@mui/material';
 import { ROUTER_KEYS } from '../../common/consts/app-keys.const';
 import TodoActions from '../actions/todo-actions';
-import { useTodo } from '../../hooks/useTodo';
 import { TodoDetailedStyles } from './todo-detailed.styled';
+import { useTodo } from '../../hooks/todo-hooks';
 
 export const TodoDetails: React.FC = () => {
   const { id } = useParams();

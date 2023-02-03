@@ -18,7 +18,7 @@ import { Container } from './todo-list.styled';
 import TodoItem from './element/todo-element';
 import TodoActions from './actions/todo-actions';
 import { Header } from '../common/components/header/header';
-import { useTodos } from '../hooks/useTodos';
+import { useTodos } from '../hooks/todo-hooks';
 import { RadioChangeEvent } from 'antd';
 import { Navigate } from 'react-router-dom';
 import { APP_KEYS } from '../common/consts';

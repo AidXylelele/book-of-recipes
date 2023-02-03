@@ -1,13 +1,14 @@
-import React from 'react';
-import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
-import { APP_KEYS } from '../common/consts';
-import { TodoDetails } from '../todo/detailed/todo-detailed';
-import { TodoForm } from '../common/components/forms/todo/todo-form';
-import { LoginPage } from '../common/components/forms/login/login.form';
-import { HomePage } from '../home';
-import { RegisterForm } from '../common/components/forms/register/register.form';
-import { ProfileContainer } from '../profile/profile.container.component';
-import TodoList from '../todo/todo-list';
+import React from "react";
+import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+import { APP_KEYS } from "../common/consts";
+import { TodoDetails } from "../todo/detailed/todo-detailed";
+import { TodoForm } from "../common/components/forms/todo/todo-form";
+import { LoginPage } from "../common/components/forms/login/login.form";
+import { HomePage } from "../home";
+import { RegisterForm } from "../common/components/forms/register/register.form";
+import { ProfileContainer } from "../profile/profile.container.component";
+import TodoList from "../todo/todo-list";
+import { ProductsList } from "../products/products-list";
 
 export const MainRouter: React.FC = () => (
   <Router>
@@ -16,12 +17,19 @@ export const MainRouter: React.FC = () => (
       <Route element={<RegisterForm />} path={APP_KEYS.ROUTER_KEYS.REGISTER} />
       <Route element={<HomePage />} path={APP_KEYS.ROUTER_KEYS.ROOT} />
       <Route element={<TodoList />} path={APP_KEYS.ROUTER_KEYS.TODOS} />
-      <Route element={<TodoDetails />} path={`${APP_KEYS.ROUTER_KEYS.TODO}/:id`} />
+      <Route
+        element={<TodoDetails />}
+        path={`${APP_KEYS.ROUTER_KEYS.TODO}/:id`}
+      />
       <Route
         element={<TodoForm />}
         path={`${APP_KEYS.ROUTER_KEYS.TODO}/${APP_KEYS.ROUTER_KEYS.NEW_TODO}`}
       />
-      <Route element={<ProfileContainer />} path={APP_KEYS.ROUTER_KEYS.PROFILE} />
+      <Route element={<ProductsList />} path={APP_KEYS.ROUTER_KEYS.PRODUCTS} />
+      <Route
+        element={<ProfileContainer />}
+        path={APP_KEYS.ROUTER_KEYS.PROFILE}
+      />
     </Routes>
   </Router>
 );

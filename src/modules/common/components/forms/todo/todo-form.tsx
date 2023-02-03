@@ -8,7 +8,7 @@ import { todoService } from '../../../../services/todo.service';
 import { QUERY_KEYS, ROUTER_KEYS } from '../../../consts/app-keys.const';
 import { todoSchema } from '../../../../validation/todo-validation';
 import { Input } from '../../input/input.component';
-import { useProfile } from '../../../../hooks/useProfile';
+import { useProfile } from '../../../../hooks/profile-hooks.ts';
 import { FormStyles } from '../form.styled';
 
 
