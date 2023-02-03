@@ -10,16 +10,11 @@ export interface ITodo extends Document {
   userId: string;
 }
 
-export interface IRequest extends Request {
+export interface ITodoRequest extends Request {
   body: ITodo;
   params: {
     id: string;
   };
-}
-
-export interface ITodoRequest extends Request {
-  user: IUser;
-  body: ITodo;
 }
 
 export interface IFiltersRequest extends Request {

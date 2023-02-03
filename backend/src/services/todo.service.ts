@@ -1,5 +1,5 @@
-import { ITodo } from '../types/todos.type';
-import { Todo } from '../models/Todo';
+import { ITodo } from "../types/todos.type";
+import { Todo } from "../models/Todo";
 
 export class TodoService {
   static async create(data: ITodo) {
@@ -27,12 +27,12 @@ export class TodoService {
     const filter: { [key: string]: any } = {
       completed: { isDone: true },
       privated: { isPrivate: true },
-      public: { isPrivate: false }
+      public: { isPrivate: false },
     };
     const query = {
       userId,
       ...filter[status],
-      ...(search && { title: { $regex: search } })
+      ...(search && { title: { $regex: search } }),
     };
     const todos = await Todo.find(query);
     return todos;

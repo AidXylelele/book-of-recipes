@@ -1,10 +1,7 @@
 {
   "compilerOptions": {
     "strict": true,
-    "typeRoots": [
-      "@types/node",
-      "./src/types"
-    ],
+    "typeRoots": ["@types/node", "./src/types"],
     "module": "commonjs",
     "esModuleInterop": true,
     "target": "es5",
@@ -16,5 +13,5 @@
       "*": ["node_modules/*"]
     }
   },
-  "include": ["src/**/*"],
+  "include": ["src/**/*"]
 }

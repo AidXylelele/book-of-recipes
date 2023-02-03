@@ -1,7 +1,7 @@
-import { Request } from 'express';
-import UserService from '../services/user.service';
-import { decodeToken, genenerateToken } from '../utils/token.util';
-import { IUser } from '../types/user.type';
+import { Request } from "express";
+import UserService from "../services/user.service";
+import { decodeToken, genenerateToken } from "../utils/token.util";
+import { IUser } from "../types/user.type";
 
 export class UserController {
   static async create(req: Request) {
@@ -22,11 +22,16 @@ export class UserController {
   }
 
   static async changePassword(
-    req: Request<{ body: { oldPassword: string; newPassword: string; email: string } }>
+    req: Request<{
+      body: { oldPassword: string; newPassword: string; email: string };
+    }>
   ): Promise<IUser | null | undefined> {
     const { oldPassword, newPassword, email } = req.body;
-    console.log(email);
-    const user = await UserService.changePassword(email, oldPassword, newPassword);
+    const user = await UserService.changePassword(
+      email,
+      oldPassword,
+      newPassword
+    );
     return user;
   }
 
@@ -35,7 +40,6 @@ export class UserController {
   ): Promise<IUser | null> {
     const { body } = req;
     const { email } = body;
-    console.log(email)
     const updatedUser = await UserService.updateUserAvatar(email, body);
     return updatedUser;
   }
