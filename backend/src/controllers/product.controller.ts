@@ -16,8 +16,8 @@ export class ProductController {
     req: IProductFiltersRequest
   ): Promise<IProduct[] | null> {
     const { user } = req;
-    const { search, status } = req.query;
-    return await ProductService.getAll(user.id, status, search);
+    const { search, category } = req.query;
+    return await ProductService.getAll(user.id, category, search);
   }
 
   static async createProduct(req: IProductRequest) {
