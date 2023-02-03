@@ -11,10 +11,10 @@ const productSchema: Schema<IProduct> = new Schema({
     required: true,
   },
   amount: {
-    type: Boolean,
+    type: Number,
     default: false,
   },
-  userId: {
+  user_id: {
     type: Schema.Types.ObjectId,
     required: true,
   },

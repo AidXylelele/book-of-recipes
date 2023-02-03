@@ -24,6 +24,7 @@ export class TodoService {
     status: any,
     search: any
   ): Promise<ITodo[] | null> {
+    console.log(userId);
     const filter: { [key: string]: any } = {
       completed: { isDone: true },
       privated: { isPrivate: true },
