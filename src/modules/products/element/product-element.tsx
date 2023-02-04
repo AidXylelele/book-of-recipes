@@ -1,5 +1,4 @@
 import React from "react";
-import TodoActions from "../actions/todo-actions";
 import {
   Box,
   Card,
@@ -13,6 +12,7 @@ import {
 import { IProduct } from "../../common/types/product.types";
 import { useCategory } from "../../hooks/category-hooks.ts";
 import { ProfileStyles } from "../../profile/profile.styled";
+import { ProductActions } from "../actions/product-actions";
 
 const ProductItem: React.FC<IProduct> = ({ _id, title, amount, category }) => {
   const { isLoading, value } = useCategory(category);
@@ -43,7 +43,7 @@ const ProductItem: React.FC<IProduct> = ({ _id, title, amount, category }) => {
         </Typography>
       </CardContent>
       <CardActions>
-        <TodoActions id={_id} />
+        <ProductActions id={_id} amount={amount} />
       </CardActions>
     </Card>
   );
