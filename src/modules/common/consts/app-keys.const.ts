@@ -29,7 +29,7 @@ export const BACKEND_KEYS = {
 export const ROUTER_KEYS = {
   ROOT: "/",
   TODO: "/todo",
-  NEW_TODO: "/new",
+  NEW: "/new",
   TODOS: "/todos",
   LOGIN: "/login",
   REGISTER: "/register",

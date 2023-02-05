@@ -6,7 +6,7 @@ import { APP_KEYS } from '../../consts';
 
 export const Header: React.FC = () => {
   const navigate = useNavigate();
-  const todoFormNavigation = () => navigate(`${ROUTER_KEYS.TODO}/${ROUTER_KEYS.NEW_TODO}`);
+  const todoFormNavigation = () => navigate(`${ROUTER_KEYS.TODO}/${ROUTER_KEYS.NEW}`);
   const profileNavigation = () => navigate(APP_KEYS.ROUTER_KEYS.PROFILE);
   return (
     <AppBar position="static">

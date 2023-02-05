@@ -22,6 +22,7 @@ export class ProductController {
 
   static async createProduct(req: IProductRequest) {
     const { body } = req;
+    console.log('Created')
     return await ProductService.create(body);
   }
 

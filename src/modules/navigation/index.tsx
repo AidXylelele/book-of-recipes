@@ -2,13 +2,13 @@ import React from "react";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import { APP_KEYS } from "../common/consts";
 import { TodoDetails } from "../todo/detailed/todo-detailed";
-import { TodoForm } from "../common/components/forms/todo/todo-form";
 import { LoginPage } from "../common/components/forms/login/login.form";
 import { HomePage } from "../home";
 import { RegisterForm } from "../common/components/forms/register/register.form";
 import { ProfileContainer } from "../profile/profile.container.component";
 import TodoList from "../todo/todo-list";
 import { ProductsList } from "../products/products-list";
+import { ProductForm } from "../common/components/forms/product/product-form";
 
 export const MainRouter: React.FC = () => (
   <Router>
@@ -22,8 +22,8 @@ export const MainRouter: React.FC = () => (
         path={`${APP_KEYS.ROUTER_KEYS.TODO}/:id`}
       />
       <Route
-        element={<TodoForm />}
-        path={`${APP_KEYS.ROUTER_KEYS.TODO}/${APP_KEYS.ROUTER_KEYS.NEW_TODO}`}
+        element={<ProductForm />}
+        path={`${APP_KEYS.ROUTER_KEYS.PRODUCTS}${APP_KEYS.ROUTER_KEYS.NEW}`}
       />
       <Route element={<ProductsList />} path={APP_KEYS.ROUTER_KEYS.PRODUCTS} />
       <Route

@@ -1,12 +1,18 @@
 export const registerValues = {
-  email: '',
-  name: '',
-  avatar: '',
-  password: '',
-  passwordConfirmation: ''
+  email: "",
+  name: "",
+  avatar: "",
+  password: "",
+  passwordConfirmation: "",
 };
 
 export const loginValues = {
-  email: '',
-  password: ''
+  email: "",
+  password: "",
+};
+
+export const productValues = {
+  title: "",
+  category: "",
+  amount: 0,
 };

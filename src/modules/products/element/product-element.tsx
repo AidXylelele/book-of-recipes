@@ -43,7 +43,7 @@ const ProductItem: React.FC<IProduct> = ({ _id, title, amount, category }) => {
         </Typography>
       </CardContent>
       <CardActions>
-        <ProductActions id={_id} amount={amount} />
+        <ProductActions id={_id!} amount={amount} />
       </CardActions>
     </Card>
   );
