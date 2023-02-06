@@ -25,7 +25,7 @@ const ProductItem: React.FC<IProduct> = ({ _id, title, amount, category }) => {
       </Box>
     );
   return (
-    <Card sx={{ maxWidth: 345 }}>
+    <Card sx={{ minWidth: 345, margin: 3 }}>
       <CardContent>
         <CardActionArea>
           <CardMedia

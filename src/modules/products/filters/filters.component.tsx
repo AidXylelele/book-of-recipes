@@ -1,14 +1,14 @@
-import React from 'react';
-import { Radio, RadioChangeEvent } from 'antd';
-import { FilterDiv } from '../todo-list.styled';
-import { Input } from '@mui/material';
-import { SPACES } from '../../theme';
+import React from "react";
+import { Radio, RadioChangeEvent } from "antd";
+import { Input } from "@mui/material";
+import { SPACES } from "../../theme";
+import { Box } from "@mui/system";
 
 const options = [
-  { label: 'All', value: 'all' },
-  { label: 'Private', value: 'privated' },
-  { label: 'Public', value: 'public' },
-  { label: 'Completed', value: 'completed' }
+  { label: "All", value: "all" },
+  { label: "Private", value: "privated" },
+  { label: "Public", value: "public" },
+  { label: "Completed", value: "completed" },
 ];
 
 interface IProps {
@@ -22,7 +22,7 @@ const FilterButtons = (props: IProps) => {
   const { changeHandler, value, search, onChange } = props;
 
   return (
-    <FilterDiv>
+    <Box sx={{ display: "flex", width: "100%", justifyContent: 'space-between' }}>
       <Radio.Group
         size="large"
         options={options}
@@ -38,7 +38,7 @@ const FilterButtons = (props: IProps) => {
         onChange={onChange}
         style={{ margin: `${SPACES.s}` }}
       />
-    </FilterDiv>
+    </Box>
   );
 };
 

@@ -8,7 +8,7 @@ export class ProfileStyles {
     gap: SPACES.l,
   };
   static card = {
-    minWidth: 345
+    minWidth: 500
   };
   static media = {
     height: 140

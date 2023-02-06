@@ -1,6 +1,5 @@
 import { Request } from "express";
 import { Document } from "mongoose";
-import { IUser } from "./user.type";
 
 export interface ICategory extends Document {
   title: string;

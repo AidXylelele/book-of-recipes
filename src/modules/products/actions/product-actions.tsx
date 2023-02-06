@@ -8,6 +8,7 @@ import {
   CircularProgress,
   TextField,
   InputAdornment,
+  Container,
 } from "@mui/material";
 import { useMutation, useQueryClient } from "react-query";
 import { QUERY_KEYS } from "../../common/consts/app-keys.const";
@@ -16,7 +17,6 @@ import { useProduct } from "../../hooks/product-hooks";
 import { productService } from "../../services/products.service";
 import { IProduct } from "../../common/types/product.types";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
-import { SettingsStyles } from "../../profile/settings/settings.styled";
 
 interface IProps {
   id: string;
@@ -56,7 +56,7 @@ export const ProductActions: React.FC<IProps> = ({ id, amount }) => {
 
   if (id && value) {
     return (
-      <div>
+      <Container sx={{minWidth: 'fit-content'}}>
         <Accordion
           expanded={expanded === "panel1"}
           onChange={handleChange("panel1")}
@@ -66,8 +66,8 @@ export const ProductActions: React.FC<IProps> = ({ id, amount }) => {
             aria-controls="panel1bh-content"
             id="panel1bh-header"
           >
-            <Typography sx={SettingsStyles.mainTitle}>
-              Change amount of product
+            <Typography>
+              Change amount
             </Typography>
           </AccordionSummary>
           <AccordionDetails>
@@ -104,7 +104,7 @@ export const ProductActions: React.FC<IProps> = ({ id, amount }) => {
         >
           Delete
         </Button>
-      </div>
+      </Container>
     );
   }
   return <CircularProgress />;
