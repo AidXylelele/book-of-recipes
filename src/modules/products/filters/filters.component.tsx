@@ -3,6 +3,7 @@ import { Radio, RadioChangeEvent } from "antd";
 import { Input } from "@mui/material";
 import { SPACES } from "../../theme";
 import { Box } from "@mui/system";
+import { FilterStyles } from "./filters.styled";
 
 const options = [
   { label: "All", value: "all" },
@@ -22,7 +23,7 @@ const FilterButtons = (props: IProps) => {
   const { changeHandler, value, search, onChange } = props;
 
   return (
-    <Box sx={{ display: "flex", width: "100%", justifyContent: 'space-between' }}>
+    <Box sx={FilterStyles.container}>
       <Radio.Group
         size="large"
         options={options}

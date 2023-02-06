@@ -7,6 +7,7 @@ import {
   CardContent,
   CardMedia,
   CircularProgress,
+  Skeleton,
   Typography,
 } from "@mui/material";
 import { IProduct } from "../../common/types/product.types";
@@ -18,11 +19,10 @@ const ProductItem: React.FC<IProduct> = ({ _id, title, amount, category }) => {
   const { isLoading, value } = useCategory(category);
   if (isLoading)
     return (
-      <Box
-        sx={{ display: "flex", alignItems: "center", justifyContent: "center" }}
-      >
-        <CircularProgress />
-      </Box>
+      <Skeleton
+        animation="wave"
+        sx={{ minWidth: 345, minHeight: 345, margin: 3 }}
+      />
     );
   return (
     <Card sx={{ minWidth: 345, margin: 3 }}>

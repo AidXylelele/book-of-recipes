@@ -5,10 +5,10 @@ import {
   Accordion,
   AccordionSummary,
   AccordionDetails,
-  CircularProgress,
   TextField,
   InputAdornment,
   Container,
+  Skeleton,
 } from "@mui/material";
 import { useMutation, useQueryClient } from "react-query";
 import { QUERY_KEYS } from "../../common/consts/app-keys.const";
@@ -17,6 +17,7 @@ import { useProduct } from "../../hooks/product-hooks";
 import { productService } from "../../services/products.service";
 import { IProduct } from "../../common/types/product.types";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
+import { ProductActionsStyles } from "./product-actions.styled";
 
 interface IProps {
   id: string;
@@ -56,7 +57,7 @@ export const ProductActions: React.FC<IProps> = ({ id, amount }) => {
 
   if (id && value) {
     return (
-      <Container sx={{minWidth: 'fit-content'}}>
+      <Container sx={{ minWidth: "fit-content" }}>
         <Accordion
           expanded={expanded === "panel1"}
           onChange={handleChange("panel1")}
@@ -66,12 +67,10 @@ export const ProductActions: React.FC<IProps> = ({ id, amount }) => {
             aria-controls="panel1bh-content"
             id="panel1bh-header"
           >
-            <Typography>
-              Change amount
-            </Typography>
+            <Typography>Change amount</Typography>
           </AccordionSummary>
           <AccordionDetails>
-            <Stack spacing={2} direction="column" justifyContent="center">
+            <Stack sx={ProductActionsStyles.stack}>
               <Typography variant="body2">{oldAmount}</Typography>
               <TextField
                 label="Aomount of product"
@@ -79,7 +78,7 @@ export const ProductActions: React.FC<IProps> = ({ id, amount }) => {
                 sx={{ m: 1, width: "25ch" }}
                 InputProps={{
                   endAdornment: (
-                    <InputAdornment position='end' >g</InputAdornment>
+                    <InputAdornment position="end">g</InputAdornment>
                   ),
                 }}
                 onChange={handleInputChange}
@@ -107,5 +106,10 @@ export const ProductActions: React.FC<IProps> = ({ id, amount }) => {
       </Container>
     );
   }
-  return <CircularProgress />;
+  return (
+    <Stack sx={ProductActionsStyles.stack}>
+      <Skeleton animation="wave" width={"100%"} />
+      <Skeleton animation="wave" width={"100%"} />
+    </Stack>
+  );
 };
