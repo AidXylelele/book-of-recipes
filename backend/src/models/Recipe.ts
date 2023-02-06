@@ -10,6 +10,14 @@ const recipeSchema: Schema<IRecipe> = new Schema({
     type: Array<Product>,
     required: true,
   },
+  videoLink: {
+    type: String,
+    required: true
+  },
+  photoLink: {
+    type: String,
+    required: true
+  },
   description: {
     type: String,
     required: true

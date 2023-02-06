@@ -10,6 +10,8 @@ export interface Product {
 export interface IRecipe extends Document {
   title: string;
   products: Array<Product>;
+  videoLink: string;
+  photoLink: string;
   description: string;
 }
 
