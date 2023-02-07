@@ -19,6 +19,8 @@ export const QUERY_KEYS = {
   PRODUCTS: "products list",
   CATEGORY: "category",
   CATEGORIES: "categories list",
+  RECIPE: "recipe",
+  RECIPES: "recipes list",
 };
 
 // Backend Routes
@@ -35,4 +37,5 @@ export const ROUTER_KEYS = {
   REGISTER: "/register",
   PROFILE: "/profile",
   PRODUCTS: "/products",
+  RECIPES: "/recipes",
 };
