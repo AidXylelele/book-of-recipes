@@ -3,3 +3,8 @@ export interface ICategory {
   title: string;
   avatar: string;
 }
+
+export interface ICreateCategory {
+  title: string;
+  avatar: string;
+}

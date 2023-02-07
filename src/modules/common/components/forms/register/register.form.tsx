@@ -1,7 +1,6 @@
 import React from 'react';
 import { Form, Formik } from 'formik';
 import { Box, Button, Container, Typography } from '@mui/material';
-import { registerSchema } from '../../../../validation/register-validation';
 import { Input } from '../../input/input.component';
 import { registerValues } from '../consts/initial-values.forms';
 import { useMutation, useQueryClient } from 'react-query';
@@ -12,6 +11,8 @@ import { useNavigate } from 'react-router-dom';
 import { APP_KEYS } from '../../../consts';
 import { SPACES } from '../../../../theme';
 import { SIZES } from '../../../../theme/fonts.const';
+import { registerSchema } from '../../../../validation/register-validation';
+
 
 export const RegisterForm: React.FC = () => {
   const navigate = useNavigate();

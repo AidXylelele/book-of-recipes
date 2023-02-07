@@ -16,3 +16,12 @@ export const productValues = {
   category: "",
   amount: 0,
 };
+
+export const recipeValues = {
+  title: "",
+  products: [],
+  videoLink: "",
+  photoLink: "",
+  description: "",
+  isPublic: true,
+};

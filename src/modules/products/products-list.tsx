@@ -21,6 +21,7 @@ export const ProductsList = () => {
   const searchHandler = (e: React.FormEvent<HTMLInputElement>) => {
     setSearch(e.currentTarget.value);
   };
+  
   if (isLoading) {
     return <LinearProgress />;
   }

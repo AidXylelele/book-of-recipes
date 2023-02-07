@@ -9,6 +9,8 @@ import { ProfileContainer } from "../profile/profile.container.component";
 import TodoList from "../todo/todo-list";
 import { ProductsList } from "../products/products-list";
 import { ProductForm } from "../common/components/forms/product/product-form";
+import RecipeList from "../recipes/recipe-list";
+import { RecipeForm } from "../recipes/form/recipe-form";
 
 export const MainRouter: React.FC = () => (
   <Router>
@@ -26,9 +28,14 @@ export const MainRouter: React.FC = () => (
         path={`${APP_KEYS.ROUTER_KEYS.PRODUCTS}${APP_KEYS.ROUTER_KEYS.NEW}`}
       />
       <Route element={<ProductsList />} path={APP_KEYS.ROUTER_KEYS.PRODUCTS} />
+      <Route element={<RecipeList />} path={APP_KEYS.ROUTER_KEYS.RECIPES} />
       <Route
         element={<ProfileContainer />}
         path={APP_KEYS.ROUTER_KEYS.PROFILE}
+      />
+      <Route
+        element={<RecipeForm />}
+        path={`${APP_KEYS.ROUTER_KEYS.RECIPES}${APP_KEYS.ROUTER_KEYS.NEW}`}
       />
     </Routes>
   </Router>

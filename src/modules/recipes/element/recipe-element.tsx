@@ -1,6 +1,6 @@
 import React from "react";
 import {
-  Box,
+  Button,
   Card,
   CardActionArea,
   CardActions,
@@ -9,13 +9,19 @@ import {
   Skeleton,
   Typography,
 } from "@mui/material";
-import { IProduct } from "../../common/types/product.types";
-import { useCategory } from "../../hooks/category-hooks";
 import { ProfileStyles } from "../../profile/profile.styled";
-import { ProductActions } from "../actions/product-actions";
+import { useRecipe } from "../../hooks/recipe-hooks";
 
-const ProductItem: React.FC<IProduct> = ({ _id, title, amount, category }) => {
-  const { isLoading, value } = useCategory(category);
+interface IProps {
+  id: string;
+}
+
+const RecipeItem: React.FC<IProps> = ({ id }) => {
+  const {
+    isLoading,
+    value,
+  } = useRecipe(id);
+
   if (isLoading)
     return (
       <Skeleton
@@ -23,6 +29,7 @@ const ProductItem: React.FC<IProduct> = ({ _id, title, amount, category }) => {
         sx={{ minWidth: 345, minHeight: 345, margin: 3 }}
       />
     );
+
   return (
     <Card sx={{ minWidth: 345, margin: 3 }}>
       <CardContent>
@@ -30,22 +37,22 @@ const ProductItem: React.FC<IProduct> = ({ _id, title, amount, category }) => {
           <CardMedia
             component="img"
             sx={ProfileStyles.media}
-            image={value.avatar}
+            image={value.photoLink}
             alt="green iguana"
           />
         </CardActionArea>
         <Typography gutterBottom variant="h5" component="div">
-          {title}
+          {value.title}
         </Typography>
-        <Typography variant="body2" color="text.secondary">
-          {amount}
+        <Typography gutterBottom component="div">
+          {value.description}
         </Typography>
       </CardContent>
       <CardActions>
-        <ProductActions id={_id!} amount={amount} />
+        <Button color="primary"></Button>
       </CardActions>
     </Card>
   );
 };
 
-export default ProductItem;
+export default RecipeItem;

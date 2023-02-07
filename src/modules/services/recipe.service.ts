@@ -2,9 +2,9 @@ import { IRecipe } from "../common/types/recipe.types";
 import { HttpService } from "./http.service";
 
 export class RecipeService extends HttpService {
-  getRecipes(category: string, search: string, isPrivate: boolean) {
+  getRecipes(category: string, search: string, isPublic: boolean) {
     return this.get(
-      `recipes/all?category=${category}&search=${search}&isPrivate=${isPrivate}`
+      `recipes/all?category=${category}&search=${search}&isPublic=${isPublic}`
     );
   }
 

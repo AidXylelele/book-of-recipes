@@ -10,9 +10,10 @@ import { QUERY_KEYS } from '../../../consts/app-keys.const';
 import { Input } from '../../input/input.component';
 import { userService } from '../../../../services/user.service';
 import { APP_KEYS } from '../../../consts';
-import { loginSchema } from '../../../../validation/login-validation';
 import { loginValues } from '../consts/initial-values.forms';
 import { FormStyles } from '../form.styled';
+import { loginSchema } from '../../../../validation/login-validation';
+
 
 export const LoginPage = () => {
   const queryClient = useQueryClient();

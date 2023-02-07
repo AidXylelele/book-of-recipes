@@ -14,12 +14,12 @@ import { useMutation, useQueryClient } from "react-query";
 import { useNavigate } from "react-router-dom";
 import { QUERY_KEYS, ROUTER_KEYS } from "../../../consts/app-keys.const";
 import { Input } from "../../input/input.component";
-import { useProfile } from "../../../../hooks/profile-hooks.ts";
+import { useProfile } from "../../../../hooks/profile-hooks";
 import { FormStyles } from "../form.styled";
 import { ICreateProduct } from "../../../types/product.types";
 import { productService } from "../../../../services/products.service";
 import { productValues } from "../consts/initial-values.forms";
-import { useCategories } from "../../../../hooks/category-hooks.ts";
+import { useCategories } from "../../../../hooks/category-hooks";
 import { ICategory } from "../../../types/category.types";
 import { productSchema } from "../../../../validation/product-validation";
 
