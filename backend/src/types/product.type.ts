@@ -9,6 +9,13 @@ export interface IProduct extends Document {
   user_id: string;
 }
 
+export interface IRecipeProduct {
+  category: string;
+  title: string;
+  amount: number;
+}
+
+
 export interface IProductRequest extends Request {
   body: IProduct;
   params: {

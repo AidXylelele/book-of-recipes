@@ -6,7 +6,7 @@ import {
 } from "../types/product.type";
 
 export class ProductController {
-  static async getByIdTodo(req: IProductRequest) {
+  static async getByIdProduct(req: IProductRequest) {
     const { params } = req;
     const { id } = params;
     return await ProductService.findById(id);

@@ -1,14 +1,25 @@
-export const filterConfigurator = (
-  user_id: string,
-  category: string,
+interface IFilter {
+  user_id: string;
+  category: string;
+}
+
+interface IQuery {
+  [index: string]: any;
+}
+
+export const filterConfigurator = <T extends IFilter>(
+  params: T,
   search: string
 ) => {
-  if (!category) {
-    return { user_id, ...(search && { title: { $regex: search } }) };
+  const query: IQuery = {};
+  for (const item in params) {
+    const value = params[item];
+    if (value) {
+      query[item] = value;
+    }
   }
   return {
-    user_id,
-    category,
+    ...query,
     ...(search && { title: { $regex: search } }),
   };
 };

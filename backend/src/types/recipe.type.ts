@@ -1,18 +1,16 @@
 import { Request } from "express";
 import { Document } from "mongoose";
-
-export interface Product {
-  category: string,
-  name: string;
-  amount: number;
-}
+import { IRecipeProduct } from "./product.type";
+import { IUser } from "./user.type";
 
 export interface IRecipe extends Document {
   title: string;
-  products: Array<Product>;
+  products: Array<IRecipeProduct>;
   videoLink: string;
   photoLink: string;
   description: string;
+  user_id: string;
+  isPublic: boolean;
 }
 
 export interface IRecipeRequest extends Request {
@@ -20,4 +18,11 @@ export interface IRecipeRequest extends Request {
   params: {
     id: string;
   };
+}
+
+export interface IRecipeFiltersRequest extends Request {
+  user: IUser;
+  search: string;
+  status: string;
+  isPrivate: boolean;
 }

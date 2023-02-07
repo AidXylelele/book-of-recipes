@@ -29,7 +29,7 @@ productsRouter.use(
   passport.authenticate("jwt", { session: false }),
   checkExistance<IProduct>("id", ProductService.findById)
 );
-productsRouter.get("/:id", responseHandler(ProductController.getByIdTodo));
+productsRouter.get("/:id", responseHandler(ProductController.getByIdProduct));
 productsRouter.put(
   "/:id",
   validateBody(ProductSchema),

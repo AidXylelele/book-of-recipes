@@ -17,11 +17,11 @@ export class ProductService {
   }
 
   static async getAll(
-    userId: string,
+    user_id: string,
     category: any,
     search: any
   ): Promise<IProduct[] | null> {
-    const query = filterConfigurator(userId, category, search);
+    const query = filterConfigurator({ user_id, category }, search);
     return await Product.find(query);
   }
 

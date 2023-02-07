@@ -1,5 +1,6 @@
 import { Model, model, Schema } from "mongoose";
-import { IRecipe, Product } from "../types/recipe.type";
+import { IRecipe } from "../types/recipe.type";
+import { IRecipeProduct } from "../types/product.type";
 
 const recipeSchema: Schema<IRecipe> = new Schema({
   title: {
@@ -7,22 +8,30 @@ const recipeSchema: Schema<IRecipe> = new Schema({
     required: true,
   },
   products: {
-    type: Array<Product>,
+    type: Array<IRecipeProduct>,
     required: true,
   },
   videoLink: {
     type: String,
-    required: true
+    required: true,
   },
   photoLink: {
     type: String,
-    required: true
+    required: true,
   },
   description: {
     type: String,
-    required: true
-  }
+    required: true,
+  },
+  user_id: {
+    type: Schema.Types.ObjectId,
+    required: true,
+  },
+  isPublic: {
+    type: Boolean,
+    required: true,
+    default: false,
+  },
 });
 
 export const Recipe: Model<IRecipe> = model("Recipe", recipeSchema);
-

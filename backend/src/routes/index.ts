@@ -3,6 +3,7 @@ import todosRouter from "./api/todos.route";
 import userRouter from "./api/users.route";
 import categoriesRouter from "./api/categories.route";
 import productsRouter from "./api/products.route";
+import recipesRouter from "./api/recipes.route";
 
 class AppRouter {
   constructor(private app: Application) {}
@@ -15,6 +16,7 @@ class AppRouter {
     this.app.use("/api/user", userRouter);
     this.app.use("/api/categories", categoriesRouter);
     this.app.use("/api/products", productsRouter);
+    this.app.use("/api/recipes", recipesRouter);
   }
 }
 
