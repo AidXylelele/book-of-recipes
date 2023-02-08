@@ -1,16 +1,14 @@
 import React from "react";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import { APP_KEYS } from "../common/consts";
-import { TodoDetails } from "../todo/detailed/todo-detailed";
 import { LoginPage } from "../common/components/forms/login/login.form";
 import { HomePage } from "../home";
 import { RegisterForm } from "../common/components/forms/register/register.form";
 import { ProfileContainer } from "../profile/profile.container.component";
-import TodoList from "../todo/todo-list";
 import { ProductsList } from "../products/products-list";
 import { ProductForm } from "../common/components/forms/product/product-form";
 import RecipeList from "../recipes/recipe-list";
-import { RecipeForm } from "../recipes/form/recipe-form";
+import { RecipeForm } from "../common/components/forms/recipe/recipe-form";
 
 export const MainRouter: React.FC = () => (
   <Router>
@@ -18,24 +16,19 @@ export const MainRouter: React.FC = () => (
       <Route element={<LoginPage />} path={APP_KEYS.ROUTER_KEYS.LOGIN} />
       <Route element={<RegisterForm />} path={APP_KEYS.ROUTER_KEYS.REGISTER} />
       <Route element={<HomePage />} path={APP_KEYS.ROUTER_KEYS.ROOT} />
-      <Route element={<TodoList />} path={APP_KEYS.ROUTER_KEYS.TODOS} />
-      <Route
-        element={<TodoDetails />}
-        path={`${APP_KEYS.ROUTER_KEYS.TODO}/:id`}
-      />
       <Route
         element={<ProductForm />}
         path={`${APP_KEYS.ROUTER_KEYS.PRODUCTS}${APP_KEYS.ROUTER_KEYS.NEW}`}
       />
       <Route element={<ProductsList />} path={APP_KEYS.ROUTER_KEYS.PRODUCTS} />
+      <Route
+        element={<RecipeForm />}
+        path={`${APP_KEYS.ROUTER_KEYS.RECIPES}${APP_KEYS.ROUTER_KEYS.NEW}`}
+      />
       <Route element={<RecipeList />} path={APP_KEYS.ROUTER_KEYS.RECIPES} />
       <Route
         element={<ProfileContainer />}
         path={APP_KEYS.ROUTER_KEYS.PROFILE}
-      />
-      <Route
-        element={<RecipeForm />}
-        path={`${APP_KEYS.ROUTER_KEYS.RECIPES}${APP_KEYS.ROUTER_KEYS.NEW}`}
       />
     </Routes>
   </Router>

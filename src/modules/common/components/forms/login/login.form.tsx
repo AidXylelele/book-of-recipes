@@ -26,7 +26,7 @@ export const LoginPage = () => {
     },
     onSuccess: () => {
       queryClient.invalidateQueries([QUERY_KEYS.PROFILE]);
-      navigate(APP_KEYS.ROUTER_KEYS.TODOS);
+      navigate(APP_KEYS.ROUTER_KEYS.RECIPES);
     }
   });
 

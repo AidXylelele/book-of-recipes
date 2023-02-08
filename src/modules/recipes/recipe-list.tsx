@@ -3,11 +3,13 @@ import { Box, LinearProgress } from "@mui/material";
 import { Container } from "./recipe-list.styled";
 import { Header } from "../common/components/header/header";
 import { RadioChangeEvent } from "antd";
-import FilterButtons from "./filters/filters.component";
 import { ProductsListStyled } from "../products/products-list.styled";
 import { IRecipe } from "../common/types/recipe.types";
 import { useRecipes } from "../hooks/recipe-hooks";
 import RecipeItem from "./element/recipe-element";
+import { RecipesHeaderButtons } from "./buttons/recipes-header-buttons";
+import FilterButtons from "../common/components/filters/filters.component";
+import { todoOptions } from "../common/components/filters/filters.configuration";
 
 const RecipeList: React.FC = () => {
   const [category, setCategory] = useState<string>("");
@@ -29,11 +31,12 @@ const RecipeList: React.FC = () => {
 
   return (
     <Container>
-      <Header />
+      <Header Component={RecipesHeaderButtons} />
       <FilterButtons
         value={category}
         changeHandler={categoryHandler}
         search={search}
+        options={todoOptions}
         onChange={searchHandler}
       />
       <Box sx={ProductsListStyled.box}>

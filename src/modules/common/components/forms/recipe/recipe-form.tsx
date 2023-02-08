@@ -8,15 +8,15 @@ import {
 import { Formik, FormikProps } from "formik";
 import { useMutation, useQueryClient } from "react-query";
 import { useNavigate } from "react-router-dom";
-import { ICreateRecipe } from "../../common/types/recipe.types";
-import { recipeService } from "../../services/recipe.service";
-import { useProfile } from "../../hooks/profile-hooks";
-import { QUERY_KEYS, ROUTER_KEYS } from "../../common/consts/app-keys.const";
-import { FormStyles } from "../../common/components/forms/form.styled";
-import { Input } from "../../common/components/input/input.component";
+import { ICreateRecipe } from "../../../types/recipe.types";
+import { recipeService } from "../../../../services/recipe.service";
+import { useProfile } from "../../../../hooks/profile-hooks";
+import { QUERY_KEYS, ROUTER_KEYS } from "../../../consts/app-keys.const";
+import { FormStyles } from "../form.styled";
+import { Input } from "../../input/input.component";
 import FormDialog from "./recipe-dialog";
-import { recipeValues } from "../../common/components/forms/consts/initial-values.forms";
-import { recipeSchema } from "../../validation/recipe-validation";
+import { recipeValues } from "../consts/initial-values.forms";
+import { recipeSchema } from "../../../../validation/recipe-validation";
 
 export const RecipeForm: React.FC = () => {
   const queryClient = useQueryClient();

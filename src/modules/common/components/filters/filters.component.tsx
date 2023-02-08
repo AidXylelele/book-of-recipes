@@ -1,28 +1,24 @@
-import React from 'react';
-import { Radio, RadioChangeEvent } from 'antd';
-import { FilterDiv } from '../todo-list.styled';
-import { Input } from '@mui/material';
-import { SPACES } from '../../theme';
-
-const options = [
-  { label: 'All', value: 'all' },
-  { label: 'Private', value: 'privated' },
-  { label: 'Public', value: 'public' },
-  { label: 'Completed', value: 'completed' }
-];
+import React from "react";
+import { Radio, RadioChangeEvent } from "antd";
+import { Input } from "@mui/material";
+import { SPACES } from "../../../theme";
+import { Box } from "@mui/system";
+import { FilterStyles } from "./filters.styled";
+import { IOption } from "../../types/filter.types";
 
 interface IProps {
   changeHandler: ({ target: { value } }: RadioChangeEvent) => void;
   value: string;
+  options: IOption[];
   search: string;
   onChange: (e: any) => void;
 }
 
 const FilterButtons = (props: IProps) => {
-  const { changeHandler, value, search, onChange } = props;
+  const { changeHandler, value, search, onChange, options } = props;
 
   return (
-    <FilterDiv>
+    <Box sx={FilterStyles.container}>
       <Radio.Group
         size="large"
         options={options}
@@ -38,7 +34,7 @@ const FilterButtons = (props: IProps) => {
         onChange={onChange}
         style={{ margin: `${SPACES.s}` }}
       />
-    </FilterDiv>
+    </Box>
   );
 };
 
