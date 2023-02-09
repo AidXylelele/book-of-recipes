@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { ICreateProduct } from "../../common/types/product.types";
+import { ICreateProduct } from "../../../types/product.types";
 import { Chip, ListItem } from "@mui/material";
 import { Box } from "@mui/system";
 

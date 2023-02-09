@@ -7,10 +7,10 @@ import DialogContentText from "@mui/material/DialogContentText";
 import DialogTitle from "@mui/material/DialogTitle";
 import { useField } from "formik";
 import { Input, InputLabel, MenuItem, Select } from "@mui/material";
-import { useCategories } from "../../hooks/category-hooks";
+import { useCategories } from "../../../../hooks/category-hooks";
 import { Skeleton } from "antd";
-import { ICategory } from "../../common/types/category.types";
-import { ICreateProduct } from "../../common/types/product.types";
+import { ICategory } from "../../../types/category.types";
+import { ICreateProduct } from "../../../types/product.types";
 import { Stack } from "@mui/system";
 import { RecipeProductsList } from "./recipe-product-list";
 
