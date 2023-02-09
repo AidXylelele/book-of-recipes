@@ -8,8 +8,8 @@ import ProductItem from "./element/product-element";
 import { useProducts } from "../hooks/product-hooks";
 import { Container, ProductsListStyled } from "./products-list.styled";
 import { Box } from "@mui/system";
-import { ProductsHeaderButtons } from "./buttons/products-header-buttons";
 import { todoOptions } from "../common/components/filters/filters.configuration";
+import { ProductsHeaderButtons } from "../common/consts/header-options.consts";
 
 export const ProductsList = () => {
   const [category, setCategory] = React.useState<string>("");
@@ -29,7 +29,7 @@ export const ProductsList = () => {
   }
   return (
     <Container>
-      <Header Component={ProductsHeaderButtons} />
+      <Header options={ProductsHeaderButtons} />
       <FilterButtons
         value={category}
         changeHandler={filterHandler}

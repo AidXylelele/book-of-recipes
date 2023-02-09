@@ -1,19 +1,19 @@
-import React, { useState } from "react";
-import { Box, LinearProgress } from "@mui/material";
-import { Container } from "./recipe-list.styled";
-import { Header } from "../common/components/header/header";
-import { RadioChangeEvent } from "antd";
-import { ProductsListStyled } from "../products/products-list.styled";
-import { IRecipe } from "../common/types/recipe.types";
-import { useRecipes } from "../hooks/recipe-hooks";
-import RecipeItem from "./element/recipe-element";
-import { RecipesHeaderButtons } from "./buttons/recipes-header-buttons";
-import FilterButtons from "../common/components/filters/filters.component";
-import { todoOptions } from "../common/components/filters/filters.configuration";
+import React, { useState } from 'react';
+import { Box, LinearProgress } from '@mui/material';
+import { Container } from './recipe-list.styled';
+import { Header } from '../common/components/header/header';
+import { RadioChangeEvent } from 'antd';
+import { ProductsListStyled } from '../products/products-list.styled';
+import { IRecipe } from '../common/types/recipe.types';
+import { useRecipes } from '../hooks/recipe-hooks';
+import RecipeItem from './element/recipe-element';
+import FilterButtons from '../common/components/filters/filters.component';
+import { todoOptions } from '../common/components/filters/filters.configuration';
+import { RecipesHeaderButtons } from '../common/consts/header-options.consts';
 
 const RecipeList: React.FC = () => {
-  const [category, setCategory] = useState<string>("");
-  const [search, setSearch] = useState<string>("");
+  const [category, setCategory] = useState<string>('');
+  const [search, setSearch] = useState<string>('');
   const [status, setStatus] = useState<boolean>(true);
   const { isLoading, values } = useRecipes(category, search, status);
 
@@ -28,10 +28,9 @@ const RecipeList: React.FC = () => {
   if (isLoading) {
     return <LinearProgress />;
   }
-
   return (
     <Container>
-      <Header Component={RecipesHeaderButtons} />
+      <Header options={RecipesHeaderButtons} />
       <FilterButtons
         value={category}
         changeHandler={categoryHandler}

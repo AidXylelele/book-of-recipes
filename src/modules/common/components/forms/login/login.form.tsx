@@ -10,10 +10,9 @@ import { QUERY_KEYS } from '../../../consts/app-keys.const';
 import { Input } from '../../input/input.component';
 import { userService } from '../../../../services/user.service';
 import { APP_KEYS } from '../../../consts';
-import { loginValues } from '../consts/initial-values.forms';
+import { loginValues } from '../../../consts/initial-values.forms';
 import { FormStyles } from '../form.styled';
 import { loginSchema } from '../../../../validation/login-validation';
-
 
 export const LoginPage = () => {
   const queryClient = useQueryClient();
@@ -27,14 +26,17 @@ export const LoginPage = () => {
     onSuccess: () => {
       queryClient.invalidateQueries([QUERY_KEYS.PROFILE]);
       navigate(APP_KEYS.ROUTER_KEYS.RECIPES);
-    }
+    },
   });
 
   return (
     <Container maxWidth="sm">
       <Box sx={FormStyles.mainBox}>
         <Box sx={FormStyles.childBox}>
-          <Typography align="center" sx={{ margin: `${SPACES.m} 0`, fontSize: SIZES.l }}>
+          <Typography
+            align="center"
+            sx={{ margin: `${SPACES.m} 0`, fontSize: SIZES.l }}
+          >
             Login to ToDo
           </Typography>
           <Formik
