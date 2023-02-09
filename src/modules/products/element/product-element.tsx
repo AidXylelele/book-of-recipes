@@ -1,18 +1,20 @@
-import React from "react";
+import React from 'react';
 import {
-  Box,
   Card,
   CardActionArea,
   CardActions,
   CardContent,
   CardMedia,
+  Chip,
+  Divider,
   Skeleton,
   Typography,
-} from "@mui/material";
-import { IProduct } from "../../common/types/product.types";
-import { useCategory } from "../../hooks/category-hooks";
-import { ProfileStyles } from "../../profile/profile.styled";
-import { ProductActions } from "../actions/product-actions";
+} from '@mui/material';
+import { IProduct } from '../../common/types/product.types';
+import { useCategory } from '../../hooks/category-hooks';
+import { ProfileStyles } from '../../profile/profile.styled';
+import { ProductActions } from '../actions/product-actions';
+import { Stack } from '@mui/system';
 
 const ProductItem: React.FC<IProduct> = ({ _id, title, amount, category }) => {
   const { isLoading, value } = useCategory(category);
@@ -34,12 +36,19 @@ const ProductItem: React.FC<IProduct> = ({ _id, title, amount, category }) => {
             alt="green iguana"
           />
         </CardActionArea>
-        <Typography gutterBottom variant="h5" component="div">
-          {title}
-        </Typography>
-        <Typography variant="body2" color="text.secondary">
-          {amount}
-        </Typography>
+        <Stack direction="column" gap={2} margin={2}>
+          <Divider>
+            <Typography gutterBottom variant="h4" component="div">
+              {title}
+            </Typography>
+          </Divider>
+          <Typography variant="body2" color="text.secondary">
+            Amount: <Chip label={amount} />
+          </Typography>
+          <Typography variant="body2" color="text.secondary">
+            Category: {<Chip label={value.title} />}
+          </Typography>
+        </Stack>
       </CardContent>
       <CardActions>
         <ProductActions id={_id!} amount={amount} />

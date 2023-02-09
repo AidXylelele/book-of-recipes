@@ -1,4 +1,4 @@
-import React from "react";
+import React from 'react';
 import {
   Button,
   Typography,
@@ -9,15 +9,15 @@ import {
   InputAdornment,
   Container,
   Skeleton,
-} from "@mui/material";
-import { useMutation, useQueryClient } from "react-query";
-import { QUERY_KEYS } from "../../common/consts/app-keys.const";
-import { Stack } from "@mui/system";
-import { useProduct } from "../../hooks/product-hooks";
-import { productService } from "../../services/products.service";
-import { IProduct } from "../../common/types/product.types";
-import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
-import { ProductActionsStyles } from "./product-actions.styled";
+} from '@mui/material';
+import { useMutation, useQueryClient } from 'react-query';
+import { QUERY_KEYS } from '../../common/consts/app-keys.const';
+import { Stack } from '@mui/system';
+import { useProduct } from '../../hooks/product-hooks';
+import { productService } from '../../services/products.service';
+import { IProduct } from '../../common/types/product.types';
+import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
+import { ProductActionsStyles } from './product-actions.styled';
 
 interface IProps {
   id: string;
@@ -57,10 +57,19 @@ export const ProductActions: React.FC<IProps> = ({ id, amount }) => {
 
   if (id && value) {
     return (
-      <Container sx={{ minWidth: "fit-content" }}>
+      <Container
+        sx={{
+          display: 'flex',
+          flexDirection: 'column',
+          alignItems: 'center',
+          justifyContent: 'center',
+          minWidth: 'fit-content',
+          gap: 2
+        }}
+      >
         <Accordion
-          expanded={expanded === "panel1"}
-          onChange={handleChange("panel1")}
+          expanded={expanded === 'panel1'}
+          onChange={handleChange('panel1')}
         >
           <AccordionSummary
             expandIcon={<ExpandMoreIcon />}
@@ -71,11 +80,10 @@ export const ProductActions: React.FC<IProps> = ({ id, amount }) => {
           </AccordionSummary>
           <AccordionDetails>
             <Stack sx={ProductActionsStyles.stack}>
-              <Typography variant="body2">{oldAmount}</Typography>
               <TextField
-                label="Aomount of product"
+                label="Amount of product"
                 id="outlined-start-adornment"
-                sx={{ m: 1, width: "25ch" }}
+                sx={{ m: 1, width: '25ch' }}
                 InputProps={{
                   endAdornment: (
                     <InputAdornment position="end">g</InputAdornment>
@@ -108,8 +116,8 @@ export const ProductActions: React.FC<IProps> = ({ id, amount }) => {
   }
   return (
     <Stack sx={ProductActionsStyles.stack}>
-      <Skeleton animation="wave" width={"100%"} />
-      <Skeleton animation="wave" width={"100%"} />
+      <Skeleton animation="wave" width={'100%'} />
+      <Skeleton animation="wave" width={'100%'} />
     </Stack>
   );
 };
