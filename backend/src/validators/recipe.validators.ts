@@ -1,6 +1,7 @@
 import * as Joi from "joi";
 
 export const RecipeSchema = Joi.object({
+  _id: Joi.string().optional(),
   title: Joi.string().min(2).trim().required(),
   products: Joi.array()
     .items({

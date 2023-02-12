@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Box, LinearProgress } from '@mui/material';
+import { Box } from '@mui/material';
 import { Container } from './recipe-list.styled';
 import { Header } from '../common/components/header/header';
 import { RadioChangeEvent } from 'antd';
@@ -10,6 +10,7 @@ import RecipeItem from './element/recipe-element';
 import FilterButtons from '../common/components/filters/filters.component';
 import { todoOptions } from '../common/components/filters/filters.configuration';
 import { RecipesHeaderButtons } from '../common/consts/header-options.consts';
+import { Preloader } from '../common/components/preloader/preloader';
 
 const RecipeList: React.FC = () => {
   const [category, setCategory] = useState<string>('');
@@ -26,7 +27,7 @@ const RecipeList: React.FC = () => {
   };
 
   if (isLoading) {
-    return <LinearProgress />;
+    return <Preloader />;
   }
   return (
     <Container>

@@ -32,6 +32,7 @@ export const ROUTER_KEYS = {
   ROOT: "/",
   TODO: "/todo",
   NEW: "/new",
+  DETAILED: '/:id',
   TODOS: "/todos",
   LOGIN: "/login",
   REGISTER: "/register",

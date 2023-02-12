@@ -25,7 +25,7 @@ interface IProps {
 }
 
 export const ProductActions: React.FC<IProps> = ({ id, amount }) => {
-  const { value } = useProduct(id);
+  const { value, isLoading } = useProduct(id);
   const queryClient = useQueryClient();
   const [expanded, setExpanded] = React.useState<string | false>(false);
   const [oldAmount, setNewAmount] = React.useState<number>(amount);
@@ -55,69 +55,67 @@ export const ProductActions: React.FC<IProps> = ({ id, amount }) => {
     },
   });
 
-  if (id && value) {
+  if (isLoading)
     return (
-      <Container
-        sx={{
-          display: 'flex',
-          flexDirection: 'column',
-          alignItems: 'center',
-          justifyContent: 'center',
-          minWidth: 'fit-content',
-          gap: 2
+      <Stack sx={ProductActionsStyles.stack}>
+        <Skeleton animation="wave" width={'100%'} />
+        <Skeleton animation="wave" width={'100%'} />
+      </Stack>
+    );
+
+  return (
+    <Container
+      sx={{
+        display: 'flex',
+        flexDirection: 'column',
+        alignItems: 'center',
+        justifyContent: 'center',
+        minWidth: 'fit-content',
+        gap: 2,
+      }}
+    >
+      <Accordion
+        expanded={expanded === 'panel1'}
+        onChange={handleChange('panel1')}
+      >
+        <AccordionSummary
+          expandIcon={<ExpandMoreIcon />}
+          aria-controls="panel1bh-content"
+          id="panel1bh-header"
+        >
+          <Typography>Change amount</Typography>
+        </AccordionSummary>
+        <AccordionDetails>
+          <Stack sx={ProductActionsStyles.stack}>
+            <TextField
+              label="Amount of product"
+              id="outlined-start-adornment"
+              sx={{ m: 1, width: '25ch' }}
+              InputProps={{
+                endAdornment: <InputAdornment position="end">g</InputAdornment>,
+              }}
+              onChange={handleInputChange}
+            />
+            <Button
+              color="primary"
+              onClick={() => {
+                value.amount = oldAmount;
+                updateProduct.mutate(value);
+              }}
+            >
+              Submit
+            </Button>
+          </Stack>
+        </AccordionDetails>
+      </Accordion>
+      <Button
+        color="primary"
+        onClick={() => {
+          deleteProduct.mutate(id);
         }}
       >
-        <Accordion
-          expanded={expanded === 'panel1'}
-          onChange={handleChange('panel1')}
-        >
-          <AccordionSummary
-            expandIcon={<ExpandMoreIcon />}
-            aria-controls="panel1bh-content"
-            id="panel1bh-header"
-          >
-            <Typography>Change amount</Typography>
-          </AccordionSummary>
-          <AccordionDetails>
-            <Stack sx={ProductActionsStyles.stack}>
-              <TextField
-                label="Amount of product"
-                id="outlined-start-adornment"
-                sx={{ m: 1, width: '25ch' }}
-                InputProps={{
-                  endAdornment: (
-                    <InputAdornment position="end">g</InputAdornment>
-                  ),
-                }}
-                onChange={handleInputChange}
-              />
-              <Button
-                color="primary"
-                onClick={() => {
-                  value.amount = oldAmount;
-                  updateProduct.mutate(value);
-                }}
-              >
-                Submit
-              </Button>
-            </Stack>
-          </AccordionDetails>
-        </Accordion>
-        <Button
-          color="primary"
-          onClick={() => {
-            deleteProduct.mutate(id);
-          }}
-        >
-          Delete
-        </Button>
-      </Container>
-    );
-  }
-  return (
-    <Stack sx={ProductActionsStyles.stack}>
-      <Skeleton animation="wave" width={'100%'} />
-      <Skeleton animation="wave" width={'100%'} />
-    </Stack>
+        Delete
+      </Button>
+    </Container>
   );
 };

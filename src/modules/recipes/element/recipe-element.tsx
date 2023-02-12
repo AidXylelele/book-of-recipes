@@ -1,4 +1,4 @@
-import React from "react";
+import React from 'react';
 import {
   Button,
   Card,
@@ -8,30 +8,35 @@ import {
   CardMedia,
   Skeleton,
   Typography,
-} from "@mui/material";
-import { ProfileStyles } from "../../profile/profile.styled";
-import { useRecipe } from "../../hooks/recipe-hooks";
+} from '@mui/material';
+import { ProfileStyles } from '../../profile/profile.styled';
+import { useRecipe } from '../../hooks/recipe-hooks';
+import { useNavigate } from 'react-router-dom';
+import { APP_KEYS } from '../../common/consts';
 
 interface IProps {
   id: string;
 }
 
 const RecipeItem: React.FC<IProps> = ({ id }) => {
-  const {
-    isLoading,
-    value,
-  } = useRecipe(id);
+  const { isLoading, value } = useRecipe(id);
+
+  const navigate = useNavigate();
+
+  const viewHandler = () => {
+    return navigate(`${APP_KEYS.ROUTER_KEYS.RECIPES}/${id}`);
+  };
 
   if (isLoading)
     return (
       <Skeleton
         animation="wave"
-        sx={{ minWidth: 345, minHeight: 345, margin: 3 }}
+        sx={{ maxWidth: 345, minHeight: 345, margin: 3 }}
       />
     );
 
   return (
-    <Card sx={{ minWidth: 345, margin: 3 }}>
+    <Card sx={{ maxWidth: 345, margin: 3 }}>
       <CardContent>
         <CardActionArea>
           <CardMedia
@@ -49,7 +54,9 @@ const RecipeItem: React.FC<IProps> = ({ id }) => {
         </Typography>
       </CardContent>
       <CardActions>
-        <Button color="primary"></Button>
+        <Button color="primary" onClick={viewHandler}>
+          View
+        </Button>
       </CardActions>
     </Card>
   );

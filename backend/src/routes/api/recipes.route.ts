@@ -32,7 +32,7 @@ recipesRouter.use(
 recipesRouter.get("/:id", responseHandler(RecipeController.getByIdRecipe));
 recipesRouter.put(
   "/:id",
-  validateBody(RecipeSchema),
+  // validateBody(RecipeSchema),
   responseHandler(RecipeController.updateRecipe)
 );
 recipesRouter.delete("/:id", responseHandler(RecipeController.deleteRecipe));

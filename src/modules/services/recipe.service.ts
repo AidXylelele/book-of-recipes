@@ -17,11 +17,12 @@ export class RecipeService extends HttpService {
   }
 
   updateRecipe(data: IRecipe) {
-    const { title, user_id, photoLink, videoLink, description, isPublic } =
+    const { title, user_id, photoLink, products, videoLink, description, isPublic } =
       data;
     const updated = {
       title,
       user_id,
+      products,
       photoLink,
       videoLink,
       description,

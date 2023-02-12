@@ -1,19 +1,19 @@
-import * as React from "react";
-import { LinearProgress } from "@mui/material";
-import { Header } from "../common/components/header/header";
-import FilterButtons from "../common/components/filters/filters.component";
-import { RadioChangeEvent } from "antd";
-import { IProduct } from "../common/types/product.types";
-import ProductItem from "./element/product-element";
-import { useProducts } from "../hooks/product-hooks";
-import { Container, ProductsListStyled } from "./products-list.styled";
-import { Box } from "@mui/system";
-import { todoOptions } from "../common/components/filters/filters.configuration";
-import { ProductsHeaderButtons } from "../common/consts/header-options.consts";
+import * as React from 'react';
+import { Header } from '../common/components/header/header';
+import FilterButtons from '../common/components/filters/filters.component';
+import { RadioChangeEvent } from 'antd';
+import { IProduct } from '../common/types/product.types';
+import ProductItem from './element/product-element';
+import { useProducts } from '../hooks/product-hooks';
+import { Container, ProductsListStyled } from './products-list.styled';
+import { Box } from '@mui/system';
+import { todoOptions } from '../common/components/filters/filters.configuration';
+import { ProductsHeaderButtons } from '../common/consts/header-options.consts';
+import { Preloader } from '../common/components/preloader/preloader';
 
 export const ProductsList = () => {
-  const [category, setCategory] = React.useState<string>("");
-  const [search, setSearch] = React.useState<string>("");
+  const [category, setCategory] = React.useState<string>('');
+  const [search, setSearch] = React.useState<string>('');
   const { isLoading, values } = useProducts(category, search);
 
   const filterHandler = ({ target: { value } }: RadioChangeEvent) => {
@@ -25,7 +25,7 @@ export const ProductsList = () => {
   };
 
   if (isLoading) {
-    return <LinearProgress />;
+    return <Preloader />;
   }
   return (
     <Container>

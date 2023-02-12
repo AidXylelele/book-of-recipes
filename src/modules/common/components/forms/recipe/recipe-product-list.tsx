@@ -1,7 +1,7 @@
-import React, { useState } from "react";
-import { ICreateProduct } from "../../../types/product.types";
-import { Chip, ListItem } from "@mui/material";
-import { Box } from "@mui/system";
+import React, { useState } from 'react';
+import { ICreateProduct } from '../../../types/product.types';
+import { Chip } from '@mui/material';
+import { Box } from '@mui/system';
 
 interface IProps {
   products: ICreateProduct[];
@@ -22,15 +22,19 @@ export const RecipeProductsList: React.FC<IProps> = ({ products, handler }) => {
   return (
     <Box
       sx={{
-        display: "flex",
-        flexWrap: "wrap",
+        display: 'flex',
+        flexWrap: 'wrap',
         gap: 2,
-        border: "darkgray",
+        border: 'darkgray',
         borderRadius: 2,
       }}
     >
-      {products.map((item: ICreateProduct) => (
-        <Chip label={item.title} onDelete={() => handleDelete(item)} />
+      {products.map((item: ICreateProduct, idx: number) => (
+        <Chip
+          key={idx}
+          label={item.title}
+          onDelete={() => handleDelete(item)}
+        />
       ))}
     </Box>
   );

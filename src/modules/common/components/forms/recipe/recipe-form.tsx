@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { Box, Container, Button, CircularProgress } from '@mui/material';
+import { Box, Container, Button } from '@mui/material';
 import { Formik, FormikProps } from 'formik';
 import { useMutation, useQueryClient } from 'react-query';
 import { useNavigate } from 'react-router-dom';
@@ -12,6 +12,7 @@ import { Input } from '../../input/input.component';
 import FormDialog from './recipe-dialog';
 import { recipeValues } from '../../../consts/initial-values.forms';
 import { recipeSchema } from '../../../../validation/recipe-validation';
+import { Preloader } from '../../preloader/preloader';
 
 export const RecipeForm: React.FC = () => {
   const queryClient = useQueryClient();
@@ -25,7 +26,7 @@ export const RecipeForm: React.FC = () => {
       return recipeService.createRecipe(newProduct);
     },
     onSuccess: async () => {
-      await queryClient.invalidateQueries([QUERY_KEYS.PRODUCTS]);
+      await queryClient.invalidateQueries([QUERY_KEYS.RECIPES]);
     },
   });
 
@@ -50,7 +51,7 @@ export const RecipeForm: React.FC = () => {
             <Container maxWidth="sm">
               <Box sx={FormStyles.mainBox}>
                 <Box sx={FormStyles.childBox}>
-                  <h3>Create Todo</h3>
+                  <h3>Create Recipe</h3>
                   <Input name="title" label="Title" />
                   <Input name="description" label="Description" />
                   <Input name="photoLink" label="Photo Link" />
@@ -75,5 +76,5 @@ export const RecipeForm: React.FC = () => {
       </Formik>
     );
   }
-  return <CircularProgress />;
+  return <Preloader />;
 };
